@@ -1,1 +1,1 @@
-//= require_tree exception_logger
+//= require_tree ./exception_logger
