@@ -1,28 +1,12 @@
 == About this fork
 
-I forked http://github.com/QuBiT/exception_logger to get it working with Rails 3.0.0.
-
-= Exception Logger for Rails3
-
-You liked the exception logger from http://github.com/defunkt/exception_logger for Rails2?
-
-You want to have the same functionallity using Rails3?
-
-You want to upgrade your Rails2 application and the old plugin breaks?
-
-You ...
-
-Then just use the exception_logger gem instead and tell your friends to do the same ;)
-
-== Hosted on RubyGems.org
-
-This gem is hosted on RubyGems.org: http://rubygems.org/gems/exception_logger
+I forked http://github.com/QuBiT/exception_logger to get it working with Rails 3.2.3.  ßome of the AJAX functionality is still broken.
 
 == Install
 
 Inside your Gemfile:
 
-  gem 'exception_logger', '0.1.7', :git => 'git://github.com/jchunky/exception_logger.git' 
+  gem 'exception_logger', :git => 'https://github.com/alexfarrill/exception_logger' 
 
 and then run:
 
@@ -32,8 +16,6 @@ Inside your ApplicationController:
 
   include ExceptionLogger::ExceptionLoggable # loades the module
   rescue_from Exception, :with => :log_exception_handler # tells rails to forward the 'Exception' (you can change the type) to the handler of the module
-
-== Generators
 
 === Database Setup
 
@@ -47,16 +29,6 @@ This will create a database migration
 
 inside db/migrations
 
-=== Stylesheet and Javascript
-
-You can copy the stylesheet and javascript to your applications public directory by using
-
-  rails g exception_logger:stylescripts
-
-This allows you to customize those files.
-
-This will be also necessary if you use a webserver ( e.g. passenger+nginx ) in front of rails which does the static file handling for you.
-
 == Routing
 
 The gem is preconfigured to extend your routes automatically. You can access the logged exceptions by pointing to "/logged_exceptions" inside your application.
@@ -68,20 +40,6 @@ You can use the rake tasks
 to see and check the routes.
 
 == Exception Notification
-
-=== by Email
-
-Rails directly provides a plugin called "Exception Notification" ( http://github.com/rails/exception_notification ).
-
-Just download the plugin and follow the usage instructions from the README file ( http://github.com/rails/exception_notification/blob/master/README ) and add this code to one of your initializer files
-
-  # Example: put this to config/initializers/exception_notification.rb
-  Whatever::Application.config.middleware.use ExceptionNotifier,
-    :email_prefix => "[Whatever] ",
-    :sender_address => %{"notifier" <notifier@example.com>},
-    :exception_recipients => %w{exceptions@example.com}
-
-Restart your server and you are done. (Don't forget to setup your email settings inside your environment files.)
 
 == Authentication
 
@@ -108,32 +66,6 @@ and (if you use declarative_authorization) add this to your authorization_rules.
     has_permission_on :logged_exceptions, :to => :manage
     ...
 
-== Upgrading from the old plugin
-
-If you have used the exception_logger plugin for your rails2 application and want to migrate to rails 3 then:
-
-* Remove the old plugin (just delete the vendor/plugins/exception_logger folder)
-* Install the new gem version (see Install)
-* DONE. (if I forgot something, then let me know.)
-
-== Legacy
-
-For more and older details read the README.old File.
-
-== Testing & Development
-
-Testing should always start before the actual development.
-
-You can test this gem very easily. Just run:
-
-  rake test:basic
-
-from the console of the cloned github repository of the exception logger.
-
-This rake task will create a rails app inside the test directory called rails_root and will install the exception logger and migrate the database of that application just in time.
-
-The generator which generates the rails app in your test directory will skip over every existing file, hence if you want to customize a file, then just add/create it.
-
 == Note on Patches/Pull Requests
  
 * Fork the project.
@@ -143,7 +75,3 @@ The generator which generates the rails app in your test directory will skip ove
 * Commit, do not mess with rakefile, version, or history.
   (if you want to have your own version, that is fine but bump version in a commit by itself I can ignore when I pull)
 * Send me a pull request. Bonus points for topic branches.
-
-== Copyright
-
-Copyright (c) 2010 Roland Guem. See LICENSE for details.
