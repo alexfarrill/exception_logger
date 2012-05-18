@@ -1,5 +1,5 @@
 # -*- encoding: utf-8 -*-
-require File.expand_path('../lib/./version', __FILE__)
+require File.expand_path('../lib/exception_logger/version', __FILE__)
 
 Gem::Specification.new do |gem|
   gem.authors       = ["Alex Farrill"]
@@ -11,7 +11,7 @@ Gem::Specification.new do |gem|
   gem.files         = `git ls-files`.split($\)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
-  gem.name          = "."
+  gem.name          = "exception_logger"
   gem.require_paths = ["lib"]
   gem.version       = ExceptionLogger::VERSION
 end
