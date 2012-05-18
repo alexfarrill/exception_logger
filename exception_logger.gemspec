@@ -8,7 +8,7 @@ Gem::Specification.new do |gem|
   gem.summary       = %q{Exception logger for Rails 3.2.3}
   gem.homepage      = ""
 
-  gem.files         = %w( public/javascripts/exception_logger.js public/stylesheets/exception_logger.css )
+  gem.files         = Dir["lib/**/*"]
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.name          = "exception_logger"
