@@ -1,0 +1,2 @@
+page[dom_id(@exception)].addClassName('deleted')
+page[:showpage].hide
