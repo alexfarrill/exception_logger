@@ -13,5 +13,5 @@ Gem::Specification.new do |gem|
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.name          = "."
   gem.require_paths = ["lib"]
-  gem.version       = .::VERSION
+  gem.version       = ExceptionLogger::VERSION
 end
